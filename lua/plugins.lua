@@ -11,7 +11,9 @@ require("packer").startup(function()
   use 'cocopon/iceberg.vim'
   use 'obaland/vfiler.vim'
   use 'obaland/vfiler-fzf'
-  use 'ibhagwan/fzf-lua'
+  -- use 'ibhagwan/fzf-lua'
+  use 'nvim-lua/plenary.nvim'
+  use 'nvim-telescope/telescope.nvim'
   -- nvim-cmp
   use "hrsh7th/nvim-cmp"
   use "hrsh7th/cmp-path"
@@ -19,6 +21,8 @@ require("packer").startup(function()
   use "hrsh7th/cmp-cmdline"
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/vim-vsnip"
+
+  use "ayu-theme/ayu-vim"
 end)
 
 require('mason').setup()
@@ -54,3 +58,6 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
   vim.lsp.handlers.signature_help, { separator = true }
 )
+
+-- colorscheme
+vim.cmd "colorscheme ayu"

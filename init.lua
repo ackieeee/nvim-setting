@@ -33,17 +33,46 @@ vim.api.nvim_create_autocmd({ 'TermOpen' }, {
 -- eqaul to below setting
 vim.cmd 'autocmd TermOpen * startinsert'
 
-vim.cmd [[
-if executable('fcitx5')
-  let g:fcitx_state = 1
-  augroup fcitx_savestate
-    autocmd!
-    autocmd InsertLeave * let g:fcitx_state = str2nr(system('fcitx5-remote'))
-    autocmd InsertLeave * call system('fcitx5-remote -c')
-    autocmd InsertEnter * call system(g:fcitx_state == 1 ? 'fcitx5-remote -c': 'fcitx5-remote -o')
-  augroup END
-endif
-]]
-
 require('keymap')
 require('plugins')
+
+
+local cmp = require("cmp")
+cmp.setup({
+  snippet = {
+    expand = function(args)
+      vim.fn["vsnip#anonymous"](args.body)
+    end,
+  },
+  sources = {
+    { name = "nvim_lsp" },
+    -- { name = "vsnip" },
+    { name = "buffer" },
+    { name = "path" },
+  },
+  mapping = cmp.mapping.preset.insert({
+    ['<C-n>'] = cmp.mapping.select_next_item(),
+    ['<C-p>'] = cmp.mapping.select_prev_item(),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-l>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.abort(),
+    ['<CR>'] = cmp.mapping.confirm { select = true },
+  }),
+  experimental = {
+    ghost_text = true,
+  },
+})
+cmp.setup.cmdline('/', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'buffer' }
+  }
+})
+cmp.setup.cmdline(":", {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = "path" },
+    { name = "cmdline" },
+  },
+})
