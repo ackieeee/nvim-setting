@@ -6,7 +6,6 @@ vim.api.nvim_set_keymap('n', '<C-l>', ':<C-u>bnext<CR>', {noremap = true, silent
 vim.api.nvim_set_keymap('n', '<C-h>', ':<C-u>bprevious<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', 'j', 'gj', {noremap = true})
 vim.api.nvim_set_keymap('n', 'k', 'gk', {noremap = true})
-vim.api.nvim_set_keymap('i', 'jj', '<ESC>', {silent=true})
 vim.api.nvim_set_keymap('n', '<C-W>+', ':<C-u>resize +5<CR>', { silent = true })
 vim.api.nvim_set_keymap('n', '<C-W>-', ':<C-u>resize -5<CR>', { silent = true })
 vim.api.nvim_set_keymap('n', '<C-W>>', ':<C-u>vertical resize +10<CR>', { silent = true })
@@ -26,3 +25,5 @@ vim.api.nvim_set_keymap('n', '<leader>GC', ':<C-u>Git commit<CR>', {noremap = tr
 vim.api.nvim_set_keymap('n', '<leader>GP', ':<C-u>Git push<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>GL', ':<C-u>Git log --oneline<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>GD', ':<C-u>vert Gdiffsplit !~1', {noremap = true})
+-- Shougo/defx
+vim.api.nvim_set_keymap('n', '<C-n>', '<cmd>Telescope file_browser<CR>', {noremap = true})

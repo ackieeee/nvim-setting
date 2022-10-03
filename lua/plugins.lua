@@ -22,6 +22,12 @@ require("packer").startup(function()
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/vim-vsnip"
 
+  -- telescope-file-browser
+  use "nvim-telescope/telescope-file-browser.nvim"
+
+  --vim-goimports
+  use 'mattn/vim-goimports'
+
   use "ayu-theme/ayu-vim"
 end)
 
@@ -61,3 +67,27 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
 
 -- colorscheme
 vim.cmd "colorscheme ayu"
+
+-- telescope-file-browser
+require("telescope").setup {
+  extensions = {
+    file_browser = {
+      theme = "ivy",
+      -- disables netrw and use telescope-file-browser in its place
+      hijack_netrw = true,
+      mappings = {
+        ["i"] = {
+          -- your custom insert mode mappings
+        },
+        ["n"] = {
+          -- your custom normal mode mappings
+        },
+      },
+    },
+  },
+}
+-- To get telescope-file-browser loaded and working with telescope,
+-- you need to call load_extension, somewhere after setup function:
+require("telescope").load_extension "file_browser"
+
+vim.api.nvim_set_var('goimports_simplify', 1)
