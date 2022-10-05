@@ -3,6 +3,7 @@ vim.opt.whichwrap = "b,s,[,],<,>"
 vim.opt.backspace = "indent,eol,start"
 vim.opt.ambiwidth = "single"
 vim.opt.wildmenu = true
+vim.opt.mouse = 'a'
 vim.opt.cmdheight = 1
 vim.opt.laststatus = 2
 vim.opt.showcmd = true

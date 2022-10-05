@@ -17,6 +17,11 @@ vim.api.nvim_set_keymap('t', '<C-W>k', '<CMD>wincmd k<CR>', {silent=true})
 vim.api.nvim_set_keymap('t', '<C-W>h', '<CMD>wincmd h<CR>', {silent=true})
 vim.api.nvim_set_keymap('t', '<C-W>l', '<CMD>wincmd l<CR>', {silent=true})
 
+vim.api.nvim_set_keymap('n', 'tc', '<CMD>tabnew<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', 'tn', '<CMD>tabnext<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', 'tp', '<CMD>tabprevious<CR>', {noremap = true})
+
+
 opt = { noremap = true, silent = true }
 vim.api.nvim_set_keymap('n', 'ff', "<cmd>Telescope find_files<CR>", opt)
 -- 'tpope/vim-fugitive' --------------------------------------------------------
