@@ -29,6 +29,15 @@ require("packer").startup(function()
   use 'mattn/vim-goimports'
 
   use "ayu-theme/ayu-vim"
+
+  use "sebdah/vim-delve"
+
+  use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+    require("toggleterm").setup()
+  end}
+  
+  use "kassio/neoterm"
+
 end)
 
 require('mason').setup()
@@ -72,7 +81,7 @@ vim.cmd "colorscheme ayu"
 require("telescope").setup {
   extensions = {
     file_browser = {
-      theme = "ivy",
+      theme = "dropdown",
       -- disables netrw and use telescope-file-browser in its place
       hijack_netrw = true,
       mappings = {
