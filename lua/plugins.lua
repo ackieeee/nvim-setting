@@ -37,6 +37,14 @@ require("packer").startup(function()
   end}
   
   use "kassio/neoterm"
+  use "rcarriga/nvim-notify"
+  use {
+  "nvim-telescope/telescope-frecency.nvim",
+  config = function()
+    require"telescope".load_extension("frecency")
+  end,
+  requires = {"kkharji/sqlite.lua"}
+}
 
 end)
 
@@ -57,7 +65,7 @@ require('mason-lspconfig').setup_handlers({ function(server)
       vim.api.nvim_buf_set_keymap(bufnr, 'n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
       vim.api.nvim_buf_set_keymap(bufnr, 'n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
     end,
-    capabilities = require('cmp_nvim_lsp').update_capabilities(
+    capabilities = require('cmp_nvim_lsp').default_capabilities(
       vim.lsp.protocol.make_client_capabilities()
     )
   }
