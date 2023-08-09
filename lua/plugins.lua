@@ -32,19 +32,38 @@ require("packer").startup(function()
 
   use "sebdah/vim-delve"
 
+  use "petertriho/nvim-scrollbar"
+
   use {"akinsho/toggleterm.nvim", tag = '*', config = function()
     require("toggleterm").setup()
   end}
   
+  -- 括弧補完
+  use "vim-denops/denops.vim"
+  use "higashi000/dps-kakkonan"
+
   use "kassio/neoterm"
   use "rcarriga/nvim-notify"
+  -- use "nvim-telescope/telescope-frecency.nvim"
   use {
-  "nvim-telescope/telescope-frecency.nvim",
-  config = function()
-    require"telescope".load_extension("frecency")
-  end,
-  requires = {"kkharji/sqlite.lua"}
-}
+    "nvim-telescope/telescope-frecency.nvim",
+    config = function()
+      require"telescope".load_extension("frecency")
+    end,
+    requires = {"kkharji/sqlite.lua"}
+  }
+ -- use {
+ -- "AckslD/nvim-neoclip.lua",
+ -- requires = {
+ --   {'kkharji/sqlite.lua', module = 'sqlite'},
+ --   -- you'll need at least one of these
+ --   -- {'nvim-telescope/telescope.nvim'},
+ --   -- {'ibhagwan/fzf-lua'},
+ -- },
+ -- config = function()
+ --   require('neoclip').setup()
+ -- end,
+ -- }
 
 end)
 
@@ -101,6 +120,19 @@ require("telescope").setup {
         },
       },
     },
+    frecency = {
+      db_root = "home/my_username/path/to/db_root",
+      show_scores = false,
+      show_unindexed = true,
+      ignore_patterns = {"*.git/*", "*/tmp/*"},
+      disable_devicons = false,
+      workspaces = {
+        ["conf"]    = "/home/my_username/.config",
+        ["data"]    = "/home/my_username/.local/share",
+        ["project"] = "/home/my_username/projects",
+        ["wiki"]    = "/home/my_username/wiki"
+      }
+    }
   },
 }
 -- To get telescope-file-browser loaded and working with telescope,

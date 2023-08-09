@@ -24,11 +24,11 @@ vim.api.nvim_set_keymap('n', 'tp', '<CMD>tabprevious<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-T><C-T>', '<CMD>Ttoggle<CR>', {noremap = true})
 vim.api.nvim_set_keymap('t', '<C-T><C-T>', '<CMD>Tclose!<CR>', {noremap = true})
 
-vim.api.nvim_set_keymap('i', '{', '{}<LEFT>', {noremap = true})
-vim.api.nvim_set_keymap('i', '[', '[]<LEFT>', {noremap = true})
-vim.api.nvim_set_keymap('i', '(', '()<LEFT>', {noremap = true})
-vim.api.nvim_set_keymap('i', '"', '""<LEFT>', {noremap = true})
-vim.api.nvim_set_keymap('i', "'", "''<LEFT>", {noremap = true})
+-- vim.api.nvim_set_keymap('i', '{', '{}<LEFT>', {noremap = true})
+-- vim.api.nvim_set_keymap('i', '[', '[]<LEFT>', {noremap = true})
+-- vim.api.nvim_set_keymap('i', '(', '()<LEFT>', {noremap = true})
+-- vim.api.nvim_set_keymap('i', '"', '""<LEFT>', {noremap = true})
+-- vim.api.nvim_set_keymap('i', "'", "''<LEFT>", {noremap = true})
 
 opt = { noremap = true, silent = true }
 vim.api.nvim_set_keymap('n', 'ff', "<cmd>Telescope find_files<CR>", opt)
