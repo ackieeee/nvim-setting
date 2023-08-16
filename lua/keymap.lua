@@ -39,4 +39,10 @@ vim.api.nvim_set_keymap('n', '<leader>GP', ':<C-u>Git push<CR>', {noremap = true
 vim.api.nvim_set_keymap('n', '<leader>GL', ':<C-u>Git log --oneline<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>GD', ':<C-u>vert Gdiffsplit !~1', {noremap = true})
 -- Shougo/defx
-vim.api.nvim_set_keymap('n', '<C-n>', '<cmd>Telescope file_browser<CR>', {noremap = true})
+-- vim.api.nvim_set_keymap('n', '<C-n>', '<cmd>Telescope file_browser<CR>', {noremap = true})
+vim.api.nvim_set_keymap(
+  'n',
+  '<C-n>',
+  '<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>',
+  {noremap = true}
+)
